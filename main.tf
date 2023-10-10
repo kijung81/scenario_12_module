@@ -9,20 +9,20 @@ terraform {
 provider "aws" {
   region = var.region
 }
-module "scenario_12_module_compute" {
+module "compute" {
   source  = "app.terraform.io/Golfzon/scenario_12_module_compute/aws"
   version = "1.0.0"
   prefix  = var.prefix
   subnet_id = module.network.aws_subnet_id
   security_group = module.security.security_group_id
 }
-module "scenario_12_module_network" {
+module "network" {
   source  = "app.terraform.io/Golfzon/scenario_12_module_network/aws"
   version = "1.0.0"
   prefix  = var.prefix
   region  = var.region
 }
-module "scenario_12_module_security" {
+module "security" {
   source  = "app.terraform.io/Golfzon/scenario_12_module_security/aws"
   version = "1.0.0"
   prefix  = var.prefix
